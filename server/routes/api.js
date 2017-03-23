@@ -7,8 +7,8 @@ var auth = require('../helper/authentication')
 router.get('/article/:id',auth.verify,articleController.readArticle);
 router.get('/article',auth.verify,articleController.readArticles);
 router.post('/article',auth.verify,articleController.createArticle);
-router.put('/article',auth.verify,articleController.updateArticle);
-router.delete('/article',auth.verify,articleController.deleteArticle);
+router.put('/article/:id',auth.verify,articleController.updateArticle);
+router.delete('/article/:id',auth.verify,articleController.deleteArticle);
 
 
 module.exports = router;

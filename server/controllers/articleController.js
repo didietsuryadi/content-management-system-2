@@ -23,7 +23,13 @@ module.exports = {
     })
   },
   deleteArticle: function () {
-
+    Article.findOneAndRemove({_id:req.params.id}, function(err, data){
+      if (err){
+        res.send(err)
+      }else{
+        res.send(data)
+      }
+    })
   },
   readArticles: function () {
 
