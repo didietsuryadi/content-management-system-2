@@ -32,9 +32,23 @@ module.exports = {
     })
   },
   readArticles: function () {
-
+    Article.find()
+    .populate('author')
+    .then(function (data) {
+      res.json(data)
+    })
+    .catch(function (err) {
+      res.json(err)
+    })
   },
   readArticle: function () {
-
+    Article.findOne({_id:req.params.id})
+    .populate('author')
+    .then(function (data) {
+      res.json(data)
+    })
+    .catch(function (err) {
+      res.json(err)
+    })
   }
 }
