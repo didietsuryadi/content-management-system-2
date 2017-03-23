@@ -36,6 +36,8 @@ var app = new Vue({
       }).then(function (res) {
         if(res.data.username == app.username){
           swal("Good job!", "You Account Has Been Created!", "success")
+        }else{
+          swal(res.data)
         }
         app.resetButton()
       })
