@@ -11,7 +11,7 @@
   <title>Admin Panel</title>
     <!-- Bootstrap Core CSS -->
   <link href="css/bootstrap.min.css" rel="stylesheet">
-  <!-- <script src="js/prevent.js"></script> -->
+  <script src="js/prevent.js"></script>
 
 </head>
 <body>
@@ -31,6 +31,8 @@
   <div class="row">
     <div class="container" id="app">
       <div class="row">
+        <h3><span class="label label-success">Selamat Datang {{username}}</span></h3>
+        <hr>
         <button type = "button" class = "btn btn-primary" data-toggle = "collapse" data-target = "#demo">
           Add New Article
         </button>
@@ -64,15 +66,15 @@
       <div class="row">
         <hr>
       </div>
-      <div class="row">
+      <div v-for="data in articles" class="row">
         <div class="panel panel-primary">
           <div class="panel-heading">
-            <h3 class="panel-title">301 Moved Permanently</h3>
+            <h3 class="panel-title">{{data.title}}</h3>
           </div>
-          <div class="panel-body">This page is temporarily disabled by the site administrator for some reason.</div>
+          <div class="panel-body">{{data.content}}</div>
           <div class="panel-footer clearfix">
             <div class="pull-right">
-              <a href="#" class="btn btn-primary">Updatee</a>
+              <a href="#" class="btn btn-primary">Update</a>
               <a href="#" class="btn btn-default">Delete</a>
             </div>
           </div>

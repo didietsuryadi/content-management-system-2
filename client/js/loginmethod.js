@@ -14,6 +14,7 @@ var app = new Vue({
         username: app.username,
         password: app.password,
       }).then(function (res) {
+        console.log(res);
         if(res.data.token){
           localStorage.setItem("userid",res.data.userid)
           localStorage.setItem("username",res.data.username)
@@ -23,7 +24,7 @@ var app = new Vue({
           alert(res.data)
         }
         app.resetButton()
-      }),
+      })
     },
     register: function(e) {
       e.preventDefault()
