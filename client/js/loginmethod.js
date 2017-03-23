@@ -14,14 +14,13 @@ var app = new Vue({
         username: app.username,
         password: app.password,
       }).then(function (res) {
-        console.log(res);
         if(res.data.token){
           localStorage.setItem("userid",res.data.userid)
           localStorage.setItem("username",res.data.username)
           localStorage.setItem("token", res.data.token)
           window.location.href = 'http://127.0.0.1:8080/'
         }else{
-          alert(res.data)
+          swal(res.data)
         }
         app.resetButton()
       })
@@ -36,7 +35,7 @@ var app = new Vue({
         email: app.email
       }).then(function (res) {
         if(res.data.username == app.username){
-          alert("account already created, please login")
+          swal("Good job!", "You Account Has Been Created!", "success")
         }
         app.resetButton()
       })
